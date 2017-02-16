@@ -2,7 +2,7 @@ class PolishCalc():
     def __init__(self):
         self.answer = 0
         self.stack = []
-        self.input = raw_input("numbers in front - spaces between - operator at end.> ").strip().split()
+        self.input = list(raw_input("numbers in front - spaces between - operator at end.> ").strip())
 
     def do_maths(self):
         for item in self.input:
@@ -17,6 +17,8 @@ class PolishCalc():
                     self.divi()
                 elif item == '*':
                     self.multi()
+            else:
+                pass
         return(self.answer)
 
     def addi(self):
@@ -24,7 +26,7 @@ class PolishCalc():
             self.answer  += itm
         self.stack = [self.answer]
         return self.stack
-        
+
     def subt(self):
         if self.answer == 0:
             self.answer = self.stack[0]
@@ -38,7 +40,7 @@ class PolishCalc():
                 self.answer -= itm
             self.stack = [self.answer]
         return self.stack
-        
+
     def divi(self):
         if self.answer == 0:
             self.answer = self.stack[0]
@@ -52,7 +54,7 @@ class PolishCalc():
                 self.answer = self.answer / itm
             self.stack = [self.answer]
         return self.stack
-        
+
     def multi(self):
         if self.answer == 0:
             self.answer = self.stack[0]
@@ -66,3 +68,8 @@ class PolishCalc():
                 self.answer = self.answer * itm
             self.stack = [self.answer]
         return self.stack
+
+
+
+problem = PolishCalc()
+print(problem.do_maths())
