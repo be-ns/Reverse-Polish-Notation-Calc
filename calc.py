@@ -10,43 +10,59 @@ class PolishCalc():
                 self.stack.append(int(item))
             elif item in '+-*/':
                 if item == '+':
-                    for itm in self.stack:
-                        self.answer  += itm
-                    self.stack = [self.answer]
+                    self.addi()
                 elif item == '-':
-                    if self.answer == 0:
-                        self.answer = self.stack[0]
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer -= itm
-                        self.stack = [self.answer]
-                    else:
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer -= itm
-                        self.stack = [self.answer]
+                    self.subt()
                 elif item == '/':
-                    if self.answer == 0:
-                        self.answer = self.stack[0]
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer = self.answer / itm
-                        self.stack = [self.answer]
-                    else:
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer = self.answer / itm
-                        self.stack = [self.answer]
+                    self.divi()
                 elif item == '*':
-                    if self.answer == 0:
-                        self.answer = self.stack[0]
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer = self.answer * itm
-                        self.stack = [self.answer]
-                    else:
-                        self.stack.pop(0)
-                        for itm in self.stack:
-                            self.answer = self.answer * itm
-                        self.stack = [self.answer]
+                    self.multi()
         return(self.answer)
+
+    def addi(self):
+        for itm in self.stack:
+            self.answer  += itm
+        self.stack = [self.answer]
+        return self.stack
+        
+    def subt(self):
+        if self.answer == 0:
+            self.answer = self.stack[0]
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer -= itm
+            self.stack = [self.answer]
+        else:
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer -= itm
+            self.stack = [self.answer]
+        return self.stack
+        
+    def divi(self):
+        if self.answer == 0:
+            self.answer = self.stack[0]
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer = self.answer / itm
+            self.stack = [self.answer]
+        else:
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer = self.answer / itm
+            self.stack = [self.answer]
+        return self.stack
+        
+    def multi(self):
+        if self.answer == 0:
+            self.answer = self.stack[0]
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer = self.answer * itm
+            self.stack = [self.answer]
+        else:
+            self.stack.pop(0)
+            for itm in self.stack:
+                self.answer = self.answer * itm
+            self.stack = [self.answer]
+        return self.stack
