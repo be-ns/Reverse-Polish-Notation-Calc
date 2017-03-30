@@ -84,3 +84,4 @@ class PolishCalc(object):
 
 if __name__ == '__main__':
     calc = PolishCalc()
+ 
