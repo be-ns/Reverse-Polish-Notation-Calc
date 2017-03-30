@@ -23,6 +23,8 @@ Say we want to calculate the value resulting from the calculation: `6 + ((5 + 3)
 |   -   |   Subtract   | [ 5 ]       | Pop two values (3 then 8), push result  5 |
 |       |    Return    |   5         |                                           |
 
+__note__  
+If you wanted to do 5 + 5 + 5 you'd do 5 5 5 + + __not__ 5 5 5 +  
 
 Wiki on how these guys work is available at https://en.wikipedia.org/wiki/Reverse_Polish_notation
 
